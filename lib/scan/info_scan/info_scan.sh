@@ -2,17 +2,18 @@
 
 source ./assets/set_color.sh
 
-source ./lib/scan/helpers/inputs.sh
 source ./lib/scan/info_scan/waf_scan.sh
-source ./lib/scan/info_scan/syn_ack_scan.sh
-source ./lib/scan/info_scan/tcp_connect_scan.sh
-source ./lib/scan/info_scan/tcp_null_scan.sh
-source ./lib/scan/info_scan/manipulative_scan.sh
 source ./lib/scan/info_scan/xmas_scan.sh
+source ./lib/scan/info_scan/syn_ack_scan.sh
+source ./lib/scan/info_scan/tcp_null_scan.sh
 source ./lib/scan/info_scan/aggressive_scan.sh
+source ./lib/scan/info_scan/tcp_connect_scan.sh
+source ./lib/scan/info_scan/manipulative_scan.sh
 source ./lib/scan/info_scan/vulnerabilities_scan.sh
-source ./lib/menus/info_menu.sh
-source ./lib/util/errors.sh
+
+source ./pkg/inputs/inputs.sh
+source ./pkg/errors/errors.sh
+source ./pkg/menus/info_menu.sh
 
 
 function info_scan()

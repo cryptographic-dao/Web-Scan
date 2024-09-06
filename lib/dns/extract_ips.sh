@@ -7,6 +7,7 @@ function extract_ips()
 {
 	local is_tor="$1"
 	local input_file="$2"
+	local info_file="$3"
 
 	if [ ! -f "$input_file" ]; then
     echo "${input_file} does not exist..."

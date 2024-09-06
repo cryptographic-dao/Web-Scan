@@ -2,6 +2,7 @@
 
 source ./assets/set_color.sh
 
+
 function success_output()
 {
 	local file_name="$1"

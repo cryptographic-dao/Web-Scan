@@ -28,7 +28,13 @@ jobs:
           fi
 
       - name: Lint Bash scripts
-        if: env.has_bash_scripts == 'true'
         run: |
-          find . -name "*.sh" -print
-          shellcheck $(find . -name "*.sh")
+          bash_scripts=$(find . -name "*.sh")
+          
+          if [ -z "$bash_scripts" ]; then
+            echo "No bash scripts found, skipping lint."
+          else
+            echo "Found bash scripts:"
+            echo "$bash_scripts"
+            shellcheck -x $bash_scripts
+          fi

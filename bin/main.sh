@@ -6,10 +6,11 @@ source ./assets/set_color.sh
 source ./lib/dns/get_dns.sh
 source ./lib/scan/info_scan/info_scan.sh
 source ./lib/scan/attack_scan/attack_scan.sh
-source ./lib/scan/helpers/inputs.sh
 source ./lib/pdf/pdf_combiner.sh
-source ./lib/util/errors.sh
-source ./lib/menus/menu.sh
+
+source ./pkg/menus/menu.sh
+source ./pkg/inputs/inputs.sh
+source ./pkg/errors/errors.sh
 
 
 function main()

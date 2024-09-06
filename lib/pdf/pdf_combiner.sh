@@ -2,18 +2,16 @@
 
 source ./assets/set_color.sh
 
-source ./lib/scan/helpers/inputs.sh
-
-source ./validators/domain_validator.sh
-source ./validators/paths_validator.sh
+source ./pkg/inputs/inputs.sh
+source ./pkg/validators/paths_validator.sh
+source ./pkg/validators/domain_validator.sh
 
 
 function pdf_combiner()
 {
     file_input
 
-    paths_input
-    if [ $? -ne 0 ]; then
+    if ! paths_input; then
         return 1
     fi
 
@@ -21,20 +19,22 @@ function pdf_combiner()
     output_file="$HOME/$file_name.nmap"
 
     # Create or clear the target .nmap file
-    > "$output_file"
+    : > "$output_file"  # Use ':' as a no-op command to clear the file
 
     echo "Combining files into $output_file..."
 
-    for path in "${path_array[@]}"; do
-        # Check if the file exists and is readable
-        if [[ -f "$path" && -r "$path" ]]; then
-            echo -e "\n# File: $path" >> "$output_file"  # Append a header for each file
-            cat "$path" >> "$output_file"                # Append the file content
-            echo -e "\n" >> "$output_file"               # Add spacing between files
-        else
-            echo "$(set_color "red")Error:$(set_color "*") Cannot read file $path. Skipping..."
-        fi
-    done
+    {
+        for path in "${path_array[@]}"; do
+            # Check if the file exists and is readable
+            if [[ -f "$path" && -r "$path" ]]; then
+                echo -e "\n# File: $path"  # Append a header for each file
+                cat "$path"              # Append the file content
+                echo -e "\n"             # Add spacing between files
+            else
+                echo "$(set_color "red")Error:$(set_color "*") Cannot read file $path. Skipping..."
+            fi
+        done
+    } >> "$output_file"
 
     # Check if the resulting file was created and contains data
     if [[ -s "$output_file" ]]; then

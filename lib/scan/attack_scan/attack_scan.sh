@@ -2,13 +2,14 @@
 
 source ./assets/set_color.sh
 
-source ./lib/menus/attack_menu.sh
-source ./lib/scan/helpers/inputs.sh
 source ./lib/scan/attack_scan/dos_attack.sh
 source ./lib/scan/attack_scan/http_brute.sh
 source ./lib/scan/attack_scan/ssh_brute.sh
 source ./lib/scan/attack_scan/wordpress_attack.sh
-source ./lib/util/errors.sh
+
+source ./pkg/menus/attack_menu.sh
+source ./pkg/inputs/inputs.sh
+source ./pkg/errors/errors.sh
 
 
 function attack_scan()

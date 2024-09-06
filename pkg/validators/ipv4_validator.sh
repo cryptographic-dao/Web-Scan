@@ -1,18 +1,19 @@
-#! /bin/bash
+#!/bin/bash
 
 source ./assets/set_color.sh
 
 
 function ipv4_validator()
 {
-	local ipv4="$1"
+  local ipv4="$1"
 
-	if [[ "$ipv4" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}(\/[0-9]{1,2})?$ ]]; then
+  if [[ "$ipv4" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}(\/[0-9]{1,2})?$ ]]; then
     local IFS='.'
-    local octets=($ipv4)
+    # Use read -a to split the string into an array
+    read -ra octets <<< "$ipv4"
     local valid=true
 
-		for octet in "${octets[@]}"; do
+    for octet in "${octets[@]}"; do
       if ! [[ "$octet" -ge 0 && "$octet" -le 255 ]]; then
         valid=false
         break

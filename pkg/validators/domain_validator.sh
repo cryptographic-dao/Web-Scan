@@ -2,8 +2,8 @@
 
 source ./assets/set_color.sh
 
-source ./validators/helpers/is_url.sh
-source ./validators/helpers/get_base_name.sh
+source ./pkg/validators/helpers/is_url.sh
+source ./pkg/validators/helpers/get_base_name.sh
 
 
 function domain_validator()

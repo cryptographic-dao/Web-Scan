@@ -2,6 +2,7 @@
 
 source ./assets/set_color.sh
 
+
 # Function to check and manage NetworkManager on Linux
 function check_network_linux() {
     network_status=$(service NetworkManager status)

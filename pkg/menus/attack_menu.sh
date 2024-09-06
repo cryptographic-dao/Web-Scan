@@ -3,6 +3,7 @@
 source ./assets/ascii.sh
 source ./assets/set_color.sh
 
+
 function attack_menu()
 {
 	clear

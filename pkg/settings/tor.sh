@@ -2,6 +2,7 @@
 
 source ./assets/set_color.sh
 
+
 # Function to check and start Tor service
 function tor_service()
 {

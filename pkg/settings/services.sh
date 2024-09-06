@@ -1,6 +1,7 @@
 #! /bin/bash
 
-source ./lib/settings/network_manager.sh
+source ./pkg/settings/network_manager.sh
+
 
 function services()
 {
