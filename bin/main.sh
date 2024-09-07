@@ -31,7 +31,6 @@ function main()
 				attack_scan
 				;;
 			4)
-				echo "PDF combiner is under maintenance..."
 				pdf_combiner
 				continue_using
 				;;
