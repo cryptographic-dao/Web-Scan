@@ -34,6 +34,3 @@ git clone https://github.com/username/repository.git
 ```bash
 sudo bash bin/main.sh
 ```
-
-#### Preview:
-![utility](preview.png)
