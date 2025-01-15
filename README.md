@@ -1,4 +1,4 @@
-# Nmap utility automated
+# Nmap utility (MacOS)
 
 ### Description
 This utility provides functionality for monitoring addresses on the Internet, 
